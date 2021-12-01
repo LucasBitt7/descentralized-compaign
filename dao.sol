@@ -1,14 +1,11 @@
 pragma solidity ^0.8.0;
-
 contract campaignFactory {
     Campaign[] public deployedCampaigns;
-    
     function createCampaign(uint minimium) public {
         Campaign newCampaign = new Campaign(minimium);
         deployedCampaigns.push(newCampaign);
     }
 }
-
 contract Campaign {
     
     address public manager;
@@ -24,7 +21,6 @@ contract Campaign {
         bool complete;
         uint approvalCount;
         mapping(address => bool) approvalss;
-    
     }
     
     constructor(uint _minimiumContribuition) {
